@@ -4,7 +4,7 @@
 **Land Use Planning for Land Degradation Neutrality**
 The Plan4LDN is a software analytics tool  to support more transparent and well-informed land-use decisions at the local to national level across the globe. 
 
-[![License: GPL v3](https://img.shields.io/github/license/crs4/Plan4LDN)](./LICENSE)
+[![License: GPL v3](https://img.shields.io/github/license/crs4/PLAN4LDN)](./LICENSE)
 
 [Live app](https://soilgislab.crs4.it/plan4ldn) 
 
