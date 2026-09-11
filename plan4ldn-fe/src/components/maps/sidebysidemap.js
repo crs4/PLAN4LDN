@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react';
-//import SideBySide from './SideBySide';
 import dynamic from 'next/dynamic';
 
 const SideBySide = dynamic(() => import('./doublemap'), {ssr: false})
