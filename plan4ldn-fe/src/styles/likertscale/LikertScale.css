@@ -1,0 +1,98 @@
+.small.p-radiobutton{
+    width: 32px;
+    height: 32px;
+}
+
+.small.p-radiobutton .p-radiobutton-box {
+    width: 32px;
+    height: 32px;
+    border: 0px solid #ced4da;
+    background: transparent;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+
+}
+
+.large.p-radiobutton{
+    width: 64px;
+    height: 32px;
+}
+
+.large.p-radiobutton .p-radiobutton-box {
+    width: 64px;
+    height: 32px;
+    border: 0px solid #ced4da;
+    background: transparent;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+
+}
+
+.p-highlight{
+
+    background: unset;
+    border-color: unset;
+
+}
+
+.p-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 0px;
+    margin: 0px;
+    overflow: unset;
+    padding: 0;
+    position: absolute;
+    width: unset;
+}
+.p-radiobutton .p-radiobutton-box.p-highlight{
+    background-color: transparent;
+    border-color: transparent;
+    position:absolute;
+}
+
+.p-radiobutton .p-radiobutton-box .p-radiobutton-icon{
+    width: unset;
+    height: unset;
+    transition-duration: 0.2s;
+    background-color: unset;
+}
+
+.p-radiobutton .p-radiobutton-box .p-radiobutton-icon::before{
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    content: "\f00c";
+}
+
+
+.strongly_disagree{
+    background-color:#d43333;
+}
+
+.disagree{
+    background-color:#e05f2f;
+}
+
+.somewhat_disagree{
+    background-color:#ed8f2f;
+}
+
+.neither_agree_or_disagree{
+    background-color:#fcdd90;
+}
+
+.somewhat_agree{
+    background-color:#bab032;
+}
+
+.agree{
+    background-color:#79a037;
+}
+
+.strongly_agree{
+    background-color:#398e3b;
+}
+

@@ -1,0 +1,8 @@
+# Windows - Docker Desktop - GIT  line endings issue
+# Set the default behavior, in case people don't have core.autocrlf set,
+# to native line endings on checkout.
+* text eol=lf
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plan4ldn"
+version = "0.0.1"
+description = "Geonode for PLAN4LDN"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "GPL-3.0-or-later" }
+keywords = ["PLAN4LDN", "geonode", "django"]
+
+# Equivalent modern replacement for dependency_links:
+dependencies = [
+  "GeoNode @ https://github.com/GeoNode/geonode/archive/refs/heads/master.zip",
+  "cachetools",
+  "pymemcache",
+  "openpyxl",
+  "django-extensions"
+]
+
+[project.urls]
+Homepage = "https://github.com/crs4/plan4ldn"
+
+[tool.setuptools]
+include-package-data = true
+
+# Correct package discovery layout
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+"*" = ["**/thesauri/*.rdf"]

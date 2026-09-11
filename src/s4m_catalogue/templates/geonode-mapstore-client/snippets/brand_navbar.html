@@ -1,0 +1,139 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE %}
+
+{% block extra_style %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/site_base.css' %}">
+</head>
+{% endblock %}
+
+{% if request.path == '/' %}
+    <div class="s4m-background home">
+        <img src="{% static 'img/soils-background6.jpg' %}">
+    </div>     
+    <nav id="gn-brand-navbar" class="gn-menu gn-menu-symmetric home">
+{% else %}  
+    <div class="s4m-background">
+        <img src="{% static 'img/soils-background6.jpg' %}" style="height:130px;">
+    </div>
+    <nav id="gn-brand-navbar" class="gn-menu gn-menu-symmetric">
+{% endif %}
+        <div class="gn-menu-container ">
+            <div class="gn-menu-content">
+                {% block left_menu %}
+                <div class="gn-menu-content-left">
+                    <ul class="gn-menu-list s4m-menu">
+                        <li>
+                            <a href="/">
+                                <img src="{% static 'img/home2.png' %}">
+                            </a>
+                        </li>
+                    </ul>                 
+                </div>
+                {% endblock %}
+                {% block right_menu %}
+                <div class="gn-menu-content-right">
+                    <ul class="gn-menu-list s4m-menu-right" style="display: flex; align-items: center; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                       <li>    
+                            {% if not request.user.is_authenticated %}
+                            <a id="sign-in" href="/account/login/?next=%2F" class="nav-link btn btn-primary" style="border-radius: 1.5rem; background-color: #1c67b6; padding: 0.4rem 1rem; display: flex; align-items: center; border: none;">
+                                <img src="{% static 'img/login.svg' %}" style="width: 1.2rem; height: 1.2rem; object-fit: contain;">
+                            </a> 
+                            {% else %} 
+                                {% include 'geonode-mapstore-client/snippets/partials/logout.html'%}
+                            {% endif %} 
+                        </li>
+                    </ul>
+                </div>
+                {% endblock %}
+                 
+                {% block center_menu %}
+                <div class="gn-menu-content-center">
+                    {% if request.path == '/' %}  
+                    <div class="jumbotron">
+                        <h1 class="home">PLAN4LDN</h1>
+                        <p class="home" style="font-weight: 500;text-align: center;">Public Catalogue</p>
+                    </div>
+                    {% endif %}
+                    <div>
+                        {% include './search_bar.html' with search_bar_id='gn-search-bar' %}
+                    </div>
+                    {% if request.path == '/' %}
+                    <div style="margin:0.5rem;">
+                        <ul class="gn-menu-list">
+                            <ul class="s4m-menu" style="list-style: none;">
+                                <li class="s4m-menu-item" style="--s4m-menu-icon-bg: #ae5d08;">
+                                    <a href="/plan4ldn">
+                                        <div class="s4m-menu-icon">
+                                            <img src="/static/img/contributors.png">
+                                        </div>
+                                        <div class="s4m-menu-label" style="font-weight: 600;">
+                                        {% if LANGUAGE == 'fr-fr' %} Ouvrir l'outil <br/>PLAN4LDN  
+                                        {% elif LANGUAGE == 'it-it' %} Apri il tool <br/>PLAN4LDN
+                                        {% elif LANGUAGE == 'es-es' %} Abra <br/>PLAN4LDN 
+                                        {% else  %} Open the tool <br/>PLAN4LDN
+                                        {% endif %}
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                                <li class="s4m-menu-item" style="--s4m-menu-icon-bg: #ae5d08;">
+                                    <a href="/static/img/help.svg">
+                                        <div class="s4m-menu-icon">
+                                            <img src="/static/img/help.svg">
+                                        </div>
+                                        <div class="s4m-menu-label" style="font-weight: 600;">
+                                        {% if LANGUAGE == 'fr-fr' %} Manuels  <br/>d'aide
+                                        {% elif LANGUAGE == 'it-it' %} Manuali <br/>di aiuto
+                                        {% elif LANGUAGE == 'es-es' %} Manuales  <br/>de ayuda
+                                        {% else  %} Help <br/>manuals
+                                        {% endif %}
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div style="text-align: center;background-color: white;">
+                        <div>
+                            <a href="https://mel.cgiar.org/projects/1866" target="_blank" rel="noopener noreferrer"><img src="/static/img/logo.png" style="height: 100px; margin-bottom: 10px; margin-left: 5px;"></a>
+                            <a href="https://www.crs4.it/" target="_blank" rel="noopener noreferrer"><img src="/static/img/LogoCRS4.2000x600.png" style="height: 100px; margin-bottom: 10px; margin-left: 5px;"></a>
+                            <a href="/" target="_blank" rel="noopener noreferrer"><img src="/static/img/icarda.png" style="height: 100px;margin-bottom: 10px; margin-left: 5px;"></a>
+                            <a href="/" target="_blank" rel="noopener noreferrer"><img src="/static/img/ELD.png" style="height: 100px; margin-bottom: 10px; margin-left: 5px;"></a>
+                        </div>   
+                    </div>
+                    {% endif %}
+                </div> 
+                {% endblock %}                
+            </div>
+        </div>
+    </nav>                      
+{% if request.path != '/' %}    
+    <nav class="s4m-blue-navbar">
+        <div class="s4m-blue-left">
+            <ul>
+                <li><a href="/catalogue/#/">{% trans "All resources" %}</a></li>
+                <li><a href="/catalogue/#/?f=dataset">{% trans "Datasets" %}</a></li>
+                <li><a href="/catalogue/#/?f=map">{% trans "Maps" %}</a></li>
+                <li><a href="/catalogue/#/?f=document">{% trans "Documents" %}</a></li>
+                <li><a href="/catalogue/#/?f=geostory">{% trans "GeoStories" %}</a></li>
+                <li><a href="/catalogue/#/?f=dashboard">{% trans "Dashboards" %}</a></li>
+            </ul>
+        </div>
+       <div class="s4m-blue-right">
+            <ul>
+                <li class="dropdown-container">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle s4m-nav-btn" type="button" data-toggle="dropdown">{% trans "About" %} <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/people/">{% trans "People" %}</a></li>
+                            <li><a href="/groups/">{% trans "Groups" %}</a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% include './language_selector.html' with variant='primary' align_right=True %}
+            </ul>
+        </div>
+    </nav>
+{% endif %}  

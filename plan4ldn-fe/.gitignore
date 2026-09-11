@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+node_modules/
+build
+.DS_Store
+*.tgz
+npm-debug.log*
+env/
+.env
+.npmrc
+cert.pem
+key.pem
+keytmp.pem

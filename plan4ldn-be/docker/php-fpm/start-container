@@ -1,0 +1,35 @@
+#!/bin/sh
+set -e
+
+# Initialize storage directory if empty
+# -----------------------------------------------------------
+# If the storage directory is empty, copy the initial contents
+# and set the correct permissions.
+# -----------------------------------------------------------
+if [ ! "$(ls -A /var/www/storage)" ]; then
+  echo "Initializing storage directory..."
+  cp -R /var/www/storage-init/. /var/www/storage
+  chown -R www-data:www-data /var/www/storage
+fi
+
+rm -rf /var/www/storage-init
+php artisan install:api
+
+# Run Laravel migrations
+# -----------------------------------------------------------
+# Ensure the database schema is up to date.
+# -----------------------------------------------------------
+php artisan migrate --force
+php artisan db:seed
+
+# Clear and cache configurations
+# -----------------------------------------------------------
+# Improves performance by caching config and routes.
+# -----------------------------------------------------------
+php artisan config:cache
+php artisan route:cache
+
+/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+
+# Run the default command (e.g., php-fpm or bash)
+exec "$@"

@@ -1,0 +1,41 @@
+<div id="logout" class="dropdown">
+
+    <button role="button" aria-haspopup="true" aria-expanded="false" type="button" class="dropdown-toggle btn btn-default" data-toggle="dropdown">
+            <img id="exit" src="/static/img/user-default.png" />
+ 
+    </button>
+    
+    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="">
+        <li>
+           <a href="/people/profile/{{ request.user }}" target="">Profile</a>
+        </li>
+        <li>
+            <a href="/social/recent-activity" target="">Recent activity</a>
+        </li>
+        <li>
+            <a href="/catalogue/#/search/?f=favorite" target="">Favorites</a>
+        </li>
+        <li>
+            <a href="/messages/inbox/" target="">Inbox</a>
+        </li>
+        <li role="separator" class="divider"></li>
+        <li>
+            <a href="/admin/" target="">Admin</a>
+        </li>
+        <li>
+            <a href="/geoserver/" target="">GeoServer</a>
+        </li>
+        <li role="separator" class="divider"></li>
+        <li>
+            <a href="/help/" target="">Help</a>
+        </li>
+        <li role="separator" class="divider"></li>
+        <li>
+            <a href="/plan4ldn/" target="">PLAN4LDN Tool</a>
+        </li>
+        <li role="separator" class="divider"></li>
+        <li>
+            <a href="/account/logout/?next=/" target="">Log out</a>
+        </li>
+    </ul>
+</div>            

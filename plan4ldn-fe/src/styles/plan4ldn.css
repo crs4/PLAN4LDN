@@ -1,0 +1,23 @@
+.high {
+  min-height: 22px;
+  color: #fff;
+  background-color: #398e3b;
+}
+
+.medium {
+  min-height: 22px;
+  color: #fff;
+  background-color: #d38416;
+}
+
+.low {
+  min-height: 22px;
+  background-color: #d43333;
+  color: #fff;
+}
+
+.not {
+  min-height: 22px;
+  background-color: #3b3b3b;
+  color: #fff;
+}

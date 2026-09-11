@@ -1,0 +1,36 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE %}
+
+
+<nav class="s4m-blue-navbar s4m-blue-navbar-top">
+    <div class="s4m-blue-left">
+        <ul>
+            <li><a href="/catalogue/#/">{% trans "All resources" %}</a></li>
+            <li><a href="/catalogue/#/?f=dataset">{% trans "Datasets" %}</a></li>
+            <li><a href="/catalogue/#/?f=map">{% trans "Maps" %}</a></li>
+            <li><a href="/catalogue/#/?f=document">{% trans "Documents" %}</a></li>
+            <li><a href="/catalogue/#/?f=geostory">{% trans "GeoStories" %}</a></li>
+            <li><a href="/catalogue/#/?f=dashboard">{% trans "Dashboards" %}</a></li>
+        </ul>
+    </div>
+    <div class="s4m-blue-right">
+        <ul>
+            <li class="dropdown-container">
+                <div class="dropdown">
+                    <button class="dropdown-toggle s4m-nav-btn" type="button" data-toggle="dropdown">{% trans "About" %} <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/people/">{% trans "People" %}</a></li>
+                        <li><a href="/groups/">{% trans "Groups" %}</a></li>
+                    </ul>
+                </div>
+            </li>
+            {% include './language_selector.html' with variant='primary' align_right=True %}
+        </ul>
+    </div>
+</nav>
+
+
+
+
+

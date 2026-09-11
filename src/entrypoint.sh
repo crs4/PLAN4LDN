@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Exit script in case of error
+set -e
+
+INVOKE_LOG_STDOUT=${INVOKE_LOG_STDOUT:-FALSE}
+invoke () {
+    if [ "$INVOKE_LOG_STDOUT" = 'true' ] || [ "$INVOKE_LOG_STDOUT" = 'True' ]
+    then
+        /usr/local/bin/invoke $@
+    else
+        /usr/local/bin/invoke $@ > /usr/src/s4m_catalogue/invoke.log 2>&1
+    fi
+    echo "$@ tasks done"
+}
+
+# Start cron service
+service cron restart
+
+echo $"\n\n\n"
+echo "-----------------------------------------------------"
+echo "STARTING DJANGO ENTRYPOINT $(date)"
+echo "-----------------------------------------------------"
+
+invoke update
+
+source $HOME/.bashrc
+source $HOME/.override_env
+
+cmd="$@"
+
+if [ "${IS_CELERY}" = "true" ]  || [ "${IS_CELERY}" = "True" ]
+then
+    echo "Executing Celery server $cmd for Production"
+else
+    if [ "${SKIP_DJANGO_MIGRATIONS}" = "true" ] || [ "${SKIP_DJANGO_MIGRATIONS}" = "True" ]; then
+        echo "SKIP_DJANGO_MIGRATIONS=true: salto migrations/fixtures (modalità restore test)."
+    else
+        invoke migrations
+        invoke prepare
+
+        if [ "${FORCE_REINIT}" = "true" ]  || [ "${FORCE_REINIT}" = "True" ] || [ ! -e "/mnt/volumes/statics/geonode_init.lock" ]; then
+            invoke fixtures
+            invoke initialized
+            invoke updateadmin
+        fi
+    fi
+    invoke statics
+    #invoke loadthesauri
+
+    echo "Executing UWSGI server $cmd for Production"
+fi
+
+echo "-----------------------------------------------------"
+echo "FINISHED DJANGO ENTRYPOINT --------------------------"
+echo "-----------------------------------------------------"
+
+# Run the CMD
+echo "got command $cmd"
+exec $cmd

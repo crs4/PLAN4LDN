@@ -1,0 +1,438 @@
+/* ==========================================
+   1. HEADER AND NAVBAR (Adjusted for GeoNode 5)
+   ========================================== */
+header.gn-main-header {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0px;
+}
+
+header .s4m-background {
+    position: relative;
+    width: 100%;
+}
+header .s4m-background img {
+    width: 100%;
+    object-fit: cover;
+}
+header .s4m-background.home img {
+    height: 500px;
+    clip-path: ellipse(95% 100% at 50% -4%);
+}
+header .s4m-background.general img {
+    height: 100px;
+}
+header .s4m-background.home {
+    filter: drop-shadow(#000 0px 0px 0.75rem);
+}
+
+#gn-brand-navbar{
+    position: absolute;
+    top: 25px;
+    font-size: 1.2rem;
+    background-color: transparent;
+    width: 100%;
+    z-index: 105;
+}
+
+#gn-brand-navbar.home .gn-menu-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+#gn-brand-navbar .gn-menu-content-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* ==========================================
+   2. FIX SEARCH BAR (STYLE EXACTLY LIKE GEONODE 4.4)
+   ========================================== */
+.s4m-search-container {
+    width: 100%;
+    max-width: 450px; /* Shorter as in 4.4 */
+    margin: 0.5rem auto; /* Reduced margin */
+    display: block !important;
+}
+
+#gn-search-bar {
+    display: block !important;
+    visibility: visible !important;
+    width: 100%;
+}
+
+.gn-search-bar {
+    max-width: 600px;
+    margin: 0.2rem;
+    border-radius: 20px;
+}
+
+.msgapi .gn-search-bar {
+    max-width: 600px;
+}
+
+#gn-search-bar .input-group {
+    display: flex !important;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 25px;
+    padding: 0px 15px; /* Reduced padding to make it lower */
+    height: 35px; /* Fixed height identical to GN 4.4 */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    width: 100%;
+}
+
+#gn-search-bar .input-group-prepend,
+#gn-search-bar .input-group-append {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+#gn-search-bar input.form-control {
+    flex: 1 1 auto;
+    width: 1%;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    font-size: 0.95rem; /* Slightly smaller text */
+    padding: 0 10px;
+    color: #333;
+}
+
+#gn-search-bar .btn {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #666 !important;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+#gn-search-bar .btn:hover {
+    color: #000 !important;
+}
+
+/* ==========================================
+   3. CUSTOM SOILS4MED ELEMENTS (Icons, Text)
+   ========================================== */
+.gn-menu-content-center h1.home{
+    color: rgb(213, 149, 89);
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px darkblue;
+    margin-bottom: 0;
+}
+
+.gn-menu-content-center h1.home span, 
+.gn-menu-content-center p.home span {
+    color: rgb(46 155 81);
+}
+
+.gn-menu-content-center p.home{
+    color: white;
+    text-shadow: 2px 2px 4px darkgreen;
+}
+
+.msgapi .gn-legacy .home .jumbotron,
+.msgapi .gn-menu-content-center div.jumbotron{
+    background-color: transparent;
+}
+
+.gn-menu-content-center .jumbotron {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.s4m-icon-row {
+    margin: 0.2rem 0; /* Reduces vertical space between rows of icons */
+}
+
+ul.s4m-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    color: #ffffff;
+    font-size: 1.7em;
+    gap: 1rem;
+}
+
+/* ICON RESIZING TO FIT INTO THE WAVE */
+.home ul.s4m-menu {
+    font-size: 1.7em; /* Reduced from 2.0em. Also scales down the circles */
+    gap: 1.6rem; /* Less space between circles */
+}
+
+.s4m-menu-item {
+    --s4m-menu-icon-bg: #b0f40b;
+}
+
+.s4m-menu-label {
+    color: var(--s4m-menu-icon-bg);
+    font-size: 0.35em;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+.s4m-menu-icon {
+    position: relative;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 0.2em solid var(--s4m-menu-icon-bg);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    padding: 1em;
+    z-index: 1;
+}
+
+.s4m-menu-icon::before {
+    transition: transform .2s;
+    position: absolute;
+    width: 1.4em;
+    height: 1.4em;
+    background-color: var(--s4m-menu-icon-bg);
+    border-radius: 50%;
+    content: '';
+    z-index: -1;
+}
+
+.s4m-menu-icon:hover::before {
+    transform: scale(1.1);
+}
+
+.s4m-menu-icon::after {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    border: 0.2em solid #ffffff;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+    content: '';
+    z-index: -1;
+    left: calc(100% - 0.4em);
+    top: calc(-100% + 0.75em);
+}
+
+.s4m-menu-item:last-child .s4m-menu-icon::after {
+    display: none;
+}
+
+.s4m-menu-item.active .s4m-menu-label,
+.s4m-menu-item:hover .s4m-menu-label {
+    font-weight: bold;
+    color: var(--s4m-menu-icon-bg);
+    text-decoration: underline;
+    text-decoration-color: var(--s4m-menu-icon-bg);
+}
+
+#gn-brand-navbar.home .s4m-menu-icon img,
+#gn-brand-navbar .s4m-menu-icon img {
+    transition: transform .2s;
+    width: 1.4em;
+    height: 1.4em;
+    object-fit: contain;
+}
+
+#gn-brand-navbar.home .s4m-menu-icon:hover img,
+#gn-brand-navbar .s4m-menu-icon:hover img {
+    transform: scale(1.1);
+}
+
+.gn-menu-content-left {
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+}
+
+.gn-menu-content-right {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    z-index: 1000;
+}
+
+/* ==========================================
+   4. BLUE BAR WITH DROPDOWNS (ALIGNED TO THE RIGHT)
+   ========================================== */
+.s4m-blue-navbar {
+    background-color: #3b749d;
+    display: flex !important;
+    justify-content: space-between !important; /* Pushes left section to the left and right section to the right */
+    align-items: center !important;
+    /*width: 100vw; */
+    /*margin-left: calc(-50vw + 50%);*/
+    height: 30px;
+    padding: 0 4rem;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.s4m-blue-navbar-top {
+    z-index: 180;
+    top: 0;
+    position: fixed;
+    width: 100%; 
+}
+
+
+/* Fundamental rule: align everything in a horizontal row */
+.s4m-blue-left > ul,
+.s4m-blue-right > ul {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5rem;
+}
+.s4m-blue-right ul li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.s4m-blue-navbar li {
+    margin: 0;
+    padding: 0;
+    position: relative; /* Necessary for dropdown menus */
+}
+
+.s4m-blue-navbar a, .s4m-blue-navbar button.dropdown-toggle {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: inherit;
+    text-transform: none; 
+    background: transparent;
+    border: none;
+    padding: 10px 5px;
+    cursor: pointer;
+}
+
+.s4m-blue-navbar a:hover, .s4m-blue-navbar button.dropdown-toggle:hover {
+    text-decoration: underline !important;
+}
+
+/* Native Bootstrap dropdown styles in blue bar */
+.s4m-blue-navbar .dropdown-container {
+    position: relative;
+}
+
+/* Opens the menu on hover instead of click */
+.s4m-blue-navbar .dropdown:hover .dropdown-menu,
+.s4m-blue-navbar .gn-language-selector:hover .dropdown-menu {
+    display: block; 
+}
+
+.s4m-blue-navbar .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    display: none;
+    min-width: 160px;
+    padding: 5px 0;
+    z-index: 1000;
+    list-style: none;
+}
+
+.s4m-blue-navbar .dropdown-menu li a {
+    color: #333 !important;
+    padding: 8px 20px;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.s4m-blue-navbar .dropdown-menu li a:hover {
+    background-color: #f5f5f5 !important;
+    text-decoration: none !important;
+}
+
+/* Fix for GN5 language button */
+.s4m-blue-navbar .gn-language-selector .btn-primary {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 10px 5px;
+}
+
+/* Other inherited elements */
+.gn-content img { width: 100%; }
+.gn-content .gn-wave-divider.light img { filter: opacity(0.4); }
+
+.gn-content .section-text {
+    text-align: justify;
+    padding: 10px 4px;
+    color: var(--gn-primary)
+}
+
+.gn-content .section-text h2{
+    color: darkblue;
+    font-weight: 500;
+    font-size: x-large;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.gn-content .section-text h3{
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 400;
+    color: darkblue;
+}    
+
+div.logos {
+    text-align: center;
+    padding: 50px;
+}    
+
+.gn-content .footer .logos {
+    display: flex;
+    padding: 0 50px;
+    background-color: rgb(228, 245, 251);
+}
+
+.gn-content .footer {
+    padding: 20px;
+    text-align: justify;
+}
+
+.policy {
+    padding: 20px 0;
+    position: sticky;
+}
+
+.policy .plink {
+    text-align: center;
+}

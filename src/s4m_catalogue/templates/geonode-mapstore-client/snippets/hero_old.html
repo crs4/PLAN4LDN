@@ -1,0 +1,91 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE %}
+
+<div id="s4m-welcome" style="text-align: center;line-height: 1.4;margin: 2rem 6rem;color: forestgreen;">
+    <div>
+        {% if LANGUAGE == 'fr-fr' %}
+        <h1 style="font-size: 2rem;font-weight: 500;">Bienvenue sur le Syst&egrave;me d&rsquo;Information sur les Sols Soils4Med</h1>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">
+                La plateforme du Syst&egrave;me d&rsquo;Information sur les Sols repr&eacute;sente une r&eacute;alisation collaborative majeure, d&eacute;velopp&eacute;e dans le cadre du 
+                <a href="https://mel.cgiar.org/projects/1866" target="_blank" rel="noopener noreferrer">projet Soils4Med</a>, 
+                Cette initiative r&eacute;unit l&rsquo;expertise et les ressources de plus de 15 institutions acad&eacute;miques et centres de recherche de premier plan 
+                &agrave; travers la r&eacute;gion m&eacute;diterran&eacute;enne. 
+                Gr&acirc;ce &agrave; leurs efforts conjoints et &agrave; la diversit&eacute; de leurs contributions, ces organisations ont cr&eacute;&eacute; un syst&egrave;me complet de suivi et 
+                d&rsquo;information sur les sols, illustrant la puissance de la coop&eacute;ration scientifique internationale.</p>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">
+                Le projet SOILS4MED fait partie du <a href="https://prima-med.org//" target="_blank" rel="noopener noreferrer">Programme PRIMA</a>, soutenu par l&rsquo;Union europ&eacute;enne.</p>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">
+                Ce site utilise des cookies techniques n&eacute;cessaires, tels que les cookies de navigation ou de session, afin de permettre et d&rsquo;optimiser le bon funzionamento du site Web. Ces cookies sont essentiels au bon funzionamento du site. Pour plus d&rsquo;informations, consultez la page Politique de confidentialit&eacute; e de cookies.
+            </p>  
+        {% elif LANGUAGE == 'it-it' %}
+        <h1 style="font-size: 2rem;font-weight: 500;">Benvenuti nel Sistema di Informazione sui Suoli Soils4Med</h1>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">La piattaforma del Sistema di Informazione sui Suoli 
+                rappresenta un importante risultato di collaborazione, sviluppato nell&rsquo;ambito del <a href="https://mel.cgiar.org/projects/1866" target="_blank" rel="noopener noreferrer">progetto Soils4Med</a>, 
+                finanziato dal programma PRIMA. Questa iniziativa riunisce l&rsquo;esperienza e le risorse di oltre 15 istituzioni accademiche e centri di ricerca leader della regione mediterranea.
+                Attraverso i loro sforzi congiunti e i contributi diversificati, queste organizzazioni hanno creato un sistema completo di monitoraggio e informazione sui suoli, che rappresenta un esempio concreto della forza della cooperazione scientifica internazionale.</p>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">
+                Il progetto SOILS4MED fa parte del <a href="https://prima-med.org//" target="_blank" rel="noopener noreferrer">Programma PRIMA</a>, sostenuto dall&rsquo;Unione Europea.</p>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">
+                Questo sito utilizza cookie tecnici necessari, come i cookie di navigazione o di sessione, per consentire e ottimizzare il corretto funzionamento del sito web. Questi cookie sono essenziali per il corretto funzionamento del sito. Per maggiori informazioni, consulta la pagina Informativa sulla privacy e sui cookie.
+            </p>
+        {% elif LANGUAGE == 'es-es' %}
+        <h1 style="font-size: 2rem;font-weight: 500;">Bienvenidos al Sistema de Informaci&ograve;n de Suelos Soils4Med</h1>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">La plataforma del Sistema de Informaci&ograve;n de Suelos 
+                representa un logro colaborativo significativo, desarrollado en el marco del <a href="https://mel.cgiar.org/projects/1866" target="_blank" rel="noopener noreferrer">proyecto Soils4Med</a>, 
+                financiado por el programa PRIMA. Esta iniciativa reúne la experiencia y los recursos de m&agrave;s de 15 instituciones acad&eacute;micas y centros de investigaci&ograve;n líderes en la regi&ograve;n mediterr&agrave;nea.
+                Gracias a sus esfuerzos conjuntos y a sus diversas contribuciones, estas organizaciones han creado un sistema integral de monitoreo e informaci&ograve;n de suelos que ejemplifica el poder de la cooperaci&ograve;n científica internacional.</p>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">
+                El proyecto SOILS4MED forma parte del <a href="https://prima-med.org//" target="_blank" rel="noopener noreferrer">Programa PRIMA</a>, apoyado por la Uni&ograve;n Europea.</p>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">
+                Este sitio utiliza cookies t&eacute;cnicas necesarias, como cookies de navegaci&ograve;n o de sesi&ograve;n, para permitir y optimizar el correcto funcionamiento del sitio web. Estas cookies son esenciales para el buen funcionamiento del sitio. Para m&agrave;s informaci&ograve;n, consulta la p&agrave;gina de Política de privacidad y cookies.
+            </p>
+        {% else %}
+        <h1 style="font-size: 2rem;font-weight: 500;">Welcome to the Soils4Med Soil Information System</h1>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">The Soils Information System platform represents a 
+                significant collaborative achievement, developed under the framework of the <a href="https://mel.cgiar.org/projects/1866" target="_blank" rel="noopener noreferrer">PRIMA-funded Soils4Med project</a>.
+                This initiative brings together the expertise and resources of more than 15 leading academic institutions and 
+                research centers across the Mediterranean region.Through their combined efforts and diverse contributions, these
+                organizations have created a comprehensive soil monitoring and information system that exemplifies the power of international scientific cooperation.</p>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">
+                The project SOILS4MED is part of the <a href="https://prima-med.org//" target="_blank" rel="noopener noreferrer">PRIMA Programme</a> supported by the European Union
+            </p>
+            <p style="text-align: justify;font-size: 1rem;margin:15px">
+                This site use necessary technical cookies, such as navigation or session cookies, to enable and optimize the functionality of the Website. These cookies are essential for the Website to work properly. More informations at <a href="https://soils4med.crs4.it/privacy_cookies/">Privacy and Cookies policy page</a> 
+            </p>
+    {% endif %}  
+    </div>
+    
+    <div class="logos" style="margin-bottom: 2rem;">
+        <a href="https://www.crs4.it//" target="_blank" rel="noopener noreferrer"><img src="{% static 'img/LogoCRS4.2000x600.png' %}" style="width: 10%;"></a>
+        <a href="https://mel.cgiar.org/projects/1866" target="_blank" rel="noopener noreferrer"><img src="{% static 'img/soils-logo1.jpg' %}" style="width: 10%; margin-bottom: 10px; margin-left: 10px;"></a>
+        <a href="https://prima-med.org//" target="_blank" rel="noopener noreferrer"><img src="{% static 'img/prima_eu_logo.png' %}" style="width: 25%;"></a>     
+    </div>   
+</div> 
+
+<nav class="s4m-blue-navbar s4m-blue-navbar-top">
+    <div class="s4m-blue-left">
+        <ul>
+            <li><a href="/catalogue/#/">{% trans "All resources" %}</a></li>
+            <li><a href="/catalogue/#/?f=dataset">{% trans "Datasets" %}</a></li>
+            <li><a href="/catalogue/#/?f=map">{% trans "Maps" %}</a></li>
+            <li><a href="/catalogue/#/?f=document">{% trans "Documents" %}</a></li>
+            <li><a href="/catalogue/#/?f=geostory">{% trans "GeoStories" %}</a></li>
+            <li><a href="/catalogue/#/?f=dashboard">{% trans "Dashboards" %}</a></li>
+        </ul>
+    </div>
+    <div class="s4m-blue-right">
+        <ul>
+            <li class="dropdown-container">
+                <div class="dropdown">
+                    <button class="dropdown-toggle s4m-nav-btn" type="button" data-toggle="dropdown">{% trans "About" %} <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/people/">{% trans "People" %}</a></li>
+                        <li><a href="/groups/">{% trans "Groups" %}</a></li>
+                    </ul>
+                </div>
+            </li>
+            {% include './language_selector.html' with variant='primary' align_right=True %}
+        </ul>
+    </div>
+</nav>

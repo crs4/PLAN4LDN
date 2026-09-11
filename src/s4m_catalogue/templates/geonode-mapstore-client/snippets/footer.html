@@ -1,0 +1,29 @@
+
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE %}
+<footer class="gn-footer">
+    <ul>
+        <li><a href="https://geonode.org/" class="nav-link">
+            <span>Geonode.org</span>
+        </a></li>
+        <li><a href="/privacy_cookies/" class="nav-link">
+            <span>
+                {% if LANGUAGE == 'fr-fr' %} Politique de cookies  
+                {% elif LANGUAGE == 'it-it' %} Politica sui cookie
+                {% elif LANGUAGE == 'es-es' %} Pol&iacute;tica de cookies  
+                {% else  %} Cookies Policy
+                {% endif %}
+            </span>
+        </a></li>
+        <li><a href="/plan4ldn/about" class="nav-link">
+            <span>
+                {% if LANGUAGE == 'fr-fr' %} &Agrave; propos  
+                {% elif LANGUAGE == 'it-it' %} A proposito
+                {% elif LANGUAGE == 'es-es' %} Acerca de  
+                {% else  %} About
+                {% endif %}
+            </span>    
+        </a></li>
+    </ul>
+</footer>

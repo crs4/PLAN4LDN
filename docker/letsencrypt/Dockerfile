@@ -1,0 +1,2 @@
+ARG BASE_IMAGE_VERSION
+FROM geonode/letsencrypt:${BASE_IMAGE_VERSION:-2.6.0-latest}

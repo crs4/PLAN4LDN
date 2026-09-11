@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# A configurable celery command.
+# Luca Pasquali <luca.pasquali@geosolutionsgroup.com>
+set -uo pipefail
+
+CELERY_BIN=${CELERY_BIN:-"$(which celery||echo celery)"}
+CELERY_APP=${CELERY_APP:-"geonode.celery_app:app"}
+CELERY__STATE_DB=${CELERY__STATE_DB:-"/mnt/volumes/statics/worker@%h.state"}
+# expressed in KB
+CELERY__MAX_MEMORY_PER_CHILD=${CELERY__MAX_MEMORY_PER_CHILD:-"200000"}
+CELERY__AUTOSCALE_VALUES=${CELERY__AUTOSCALE_VALUES:-"10,5"}
+CELERY__MAX_TASKS_PER_CHILD=${CELERY__MAX_TASKS_PER_CHILD:-"10"}
+CELERY__OPTS=${CELERY__OPTS:-"--without-gossip --without-mingle -Ofair -E"}
+CELERY__LOG_LEVEL=${CELERY__LOG_LEVEL:-"ERROR"}
+CELERY__LOG_FILE=${CELERY__LOG_FILE:-"/var/log/celery_worker.log"}
+CELERY__WORKER_NAME=${CELERY__WORKER_NAME:-"worker1@%h"}
+CELERY__WORKER_CONCURRENCY=${CELERY__WORKER_CONCURRENCY:-"4"}
+
+# Celery beat settings
+CELERY__BEAT_SCHEDULE=${CELERY__BEAT_SCHEDULE:-"celery.beat:PersistentScheduler"}
+CELERY__BEAT_LOG=${CELERY__BEAT_LOG:-"/var/log/celery_beat.log"}
+
+# Harvester settings
+CELERY__HARVESTER_WORKER_NAME=${CELERY__HARVESTER_WORKER_NAME:-"harvesting_worker@%h"}
+CELERY__HARVESTER_CONCURRENCY=${CELERY__HARVESTER_CONCURRENCY:-"10"}
+CELERY__HARVESTER_AUTOSCALE_VALUES=${CELERY__HARVESTER_AUTOSCALE_VALUES:-"15,10"}
+# FIX: was incorrectly referencing CELERY__MAX_MEMORY_PER_CHILD (missing HARVESTER_ prefix)
+CELERY__HARVESTER_MAX_MEMORY_PER_CHILD=${CELERY__HARVESTER_MAX_MEMORY_PER_CHILD:-"500000"}
+# FIX: separate log file to avoid interleaved writes with the default worker
+CELERY__HARVESTER_LOG_FILE=${CELERY__HARVESTER_LOG_FILE:-"/var/log/celery_harvester.log"}
+
+# --- Beat pidfile cleanup ---
+BEAT_PIDFILE="/tmp/celerybeat.pid"
+
+if [ -f "$BEAT_PIDFILE" ]; then
+    PID=$(cat "$BEAT_PIDFILE" 2>/dev/null)
+    if kill -0 "$PID" 2>/dev/null; then
+        echo "ERROR: Celery Beat is already running (PID $PID). Aborting to avoid duplicate schedulers."
+        exit 1
+    fi
+    echo "Removing stale Celery Beat pidfile: $BEAT_PIDFILE"
+    rm -f "$BEAT_PIDFILE"
+fi
+# --- END Beat pidfile cleanup ---
+
+# --- Graceful shutdown: forward SIGTERM to all children ---
+BEAT_PID=""
+WORKER_PID=""
+HARVESTER_PID=""
+
+_term() {
+    echo "Caught SIGTERM/SIGINT — shutting down all Celery processes gracefully..."
+    [ -n "$BEAT_PID" ]      && kill -TERM "$BEAT_PID"      2>/dev/null
+    [ -n "$WORKER_PID" ]    && kill -TERM "$WORKER_PID"    2>/dev/null
+    [ -n "$HARVESTER_PID" ] && kill -TERM "$HARVESTER_PID" 2>/dev/null
+    wait "$BEAT_PID" "$WORKER_PID" "$HARVESTER_PID" 2>/dev/null
+}
+trap _term SIGTERM SIGINT
+# --- END graceful shutdown ---
+
+echo "Starting Celery Beat..."
+$CELERY_BIN -A $CELERY_APP beat --scheduler=$CELERY__BEAT_SCHEDULE \
+    --loglevel=$CELERY__LOG_LEVEL -f $CELERY__BEAT_LOG --pidfile=$BEAT_PIDFILE &
+BEAT_PID=$!
+
+echo "Starting Default Celery Worker..."
+$CELERY_BIN -A $CELERY_APP worker --autoscale=$CELERY__AUTOSCALE_VALUES \
+    --max-memory-per-child=$CELERY__MAX_MEMORY_PER_CHILD $CELERY__OPTS \
+    --statedb=$CELERY__STATE_DB \
+    --loglevel=$CELERY__LOG_LEVEL -n $CELERY__WORKER_NAME -f $CELERY__LOG_FILE \
+    --concurrency=$CELERY__WORKER_CONCURRENCY --max-tasks-per-child=$CELERY__MAX_TASKS_PER_CHILD \
+    -X harvesting &
+WORKER_PID=$!
+
+echo "Starting Harvester Celery Worker..."
+$CELERY_BIN -A $CELERY_APP worker -Q harvesting \
+    --autoscale=$CELERY__HARVESTER_AUTOSCALE_VALUES \
+    --max-memory-per-child=$CELERY__HARVESTER_MAX_MEMORY_PER_CHILD \
+    --loglevel=$CELERY__LOG_LEVEL \
+    -n $CELERY__HARVESTER_WORKER_NAME \
+    --concurrency=$CELERY__HARVESTER_CONCURRENCY \
+    -f $CELERY__HARVESTER_LOG_FILE &
+HARVESTER_PID=$!
+
+echo "Beat PID=$BEAT_PID | Worker PID=$WORKER_PID | Harvester PID=$HARVESTER_PID"
+
+# Wait for any process to exit, then let Docker handle the restart
+wait -n
+exit $?

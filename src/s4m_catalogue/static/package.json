@@ -1,0 +1,23 @@
+{
+  "name": "PLAN4LDN Catalogue",
+  "version": "1.0.0",
+  "author": "GeoNode Developers",
+  "description": "Static code and assets for PLAN4LDN Catalogue",
+  "contributors": [
+  ],
+  "scripts": {
+    "test": "jshint **.js"
+  },
+  "license": "BSD",
+  "private": "false",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "del": "*",
+    "gulp": "^3.9.0",
+    "gulp-util": "*",
+    "gulp-concat": "*",
+    "gulp-less": "*",
+    "path": "*"
+  }
+}
