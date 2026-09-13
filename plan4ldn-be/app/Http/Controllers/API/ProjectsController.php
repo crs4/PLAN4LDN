@@ -26,13 +26,12 @@ class ProjectsController extends Controller
 {
     protected $cacheTtl;
     protected $geoserviceBaseURI;
-    protected $requestTimeout;
-    protected $token;
-
+    protected $requestTimeout; 
+    
     public function __construct()
     {
-        $this->siteurl = env('SITE_URL', 'http://localhost/') 
-        $this->geoserviceBaseURI = $this->siteurl . 'geoserver/geonode/';;
+        $this->siteurl = env('SITE_URL', 'http://localhost/'); 
+        $this->geoserviceBaseURI = $this->siteurl . 'geoserver/geonode/';
 	    $this->requestTimeout = env('REQUEST_TIMEOUT_SECONDS', 30);
     }
 

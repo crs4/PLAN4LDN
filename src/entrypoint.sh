@@ -36,7 +36,7 @@ else
     if [ "${SKIP_DJANGO_MIGRATIONS}" = "true" ] || [ "${SKIP_DJANGO_MIGRATIONS}" = "True" ]; then
         echo "SKIP_DJANGO_MIGRATIONS=true: salto migrations/fixtures (modalità restore test)."
     else
-        invoke migrations
+        invoke migrations        
         invoke prepare
 
         if [ "${FORCE_REINIT}" = "true" ]  || [ "${FORCE_REINIT}" = "True" ] || [ ! -e "/mnt/volumes/statics/geonode_init.lock" ]; then

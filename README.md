@@ -62,10 +62,16 @@ It is a Geonode WEB GIS catalogue
 ### Requirenments
 - **docker compose Desktop or Engine
 
-### 1. copy the .env.dev file o r the .env.prod in a new file named .env 
+### 0. clone the repository 
+```bash
+    git clone https://github.com/crs4/PLAN4LDN.git -b <your_branch>
+    cd PLAN4LDN
+```
+
+### 1. copy the .env.sample file in a new file named .env 
 
 ```bash
-cp .env.dev .env
+cp .env.sample .env
 ```
 
 ### 2. edit the environment variables in the new .env file (see the comments in the file)
@@ -85,6 +91,7 @@ docker compose build
 ```bash
 docker compose up -d 
 ```
+### 4. Access the site (e.g on http://localhost/ )
 
 ## License
 

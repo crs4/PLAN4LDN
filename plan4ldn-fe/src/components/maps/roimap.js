@@ -7,13 +7,10 @@ import { bbox, point, polygon, multiPolygon, booleanPointInPolygon, booleanInter
 // Geoman
 import '@geoman-io/leaflet-geoman-free';
 import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
-//import './leaflet-extensions/Leaflet.Control.Custom';
 // Mask
 import './leaflet-extensions/mask/leaflet.mask';
 // Legends
 import './leaflet-extensions/htmllegend/L.Control.HtmlLegend';
-// EasyButton
-//import './leaflet-extensions/easybutton/easy-button';
 // Leaflet Basemap Providers
 import 'leaflet-providers';
 import { useTranslations } from 'next-intl';

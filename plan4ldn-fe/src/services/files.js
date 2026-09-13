@@ -17,6 +17,9 @@ export const getGeoJsonPolygon = async (id,polygonFileId, token) =>
 
 export const getGeoTiff = async (id,tiff_file_id, token) => 
   doFetch(`/projects/${id}/files/${tiff_file_id}/content`, "GETTIFF", null, token )
+
+export const getGeoTiffFile = async (id,tiff_file_id, token) => 
+  doFetch(`/projects/${id}/files/${tiff_file_id}/content`, "GETTIFF_FILE", null, token )
   
 
 

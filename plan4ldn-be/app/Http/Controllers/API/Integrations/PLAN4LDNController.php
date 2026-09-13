@@ -41,9 +41,9 @@ class PLAN4LDNController extends Controller
     public function __construct(){
     
 	    $this->requestTimeout = env('REQUEST_TIMEOUT_SECONDS', 60);
-        $this->siteurl = env('SITE_URL', 'http://localhost/') 
-        $this->token = env('WOCAT_TOKEN', '___this_is_a_wrong_token___') 
-        $this->geoserverurl = $this->siteurl . 'geoserver/geonode/';;
+        $this->siteurl = env('SITE_URL', 'http://localhost/'); 
+        $this->token = env('WOCAT_TOKEN', '___this_is_a_wrong_token___'); 
+        $this->geoserverurl = $this->siteurl . 'geoserver/geonode/';
 	    $this->geoserverwfs = $this->geoserverurl . "ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=application%2Fjson&";
         $this->geoserverwms = $this->geoserverurl . "ows?service=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&FEATURE_COUNT=1&X=50&Y=50&SRS=EPSG:4326&STYLES=&WIDTH=101&HEIGHT=101&FORMAT=application/json&TRANSPARENT=true&exceptions=application/vnd.ogc.se_inimage&INFO_FORMAT=application/json";
 		$this->geoserverwcs = $this->geoserverurl . "ows?service=WCS&version=2.0.1&request=GetCoverage&height=512&width=512&";

@@ -26,10 +26,23 @@ export const doFetch = async (endpoint, method, payload, token) => {
         })
       }
       else if ( method === 'GETTIFF' ) { 
+        // get an array buffer of the image
         response = await fetch( url,
         {  
           method: "GET",
           responseType: 'arraybuffer',
+          headers: {
+            Accept: 'image/tiff',
+            ..._auth,
+          },
+        }); 
+      }
+      else if ( method === 'GETTIFF_FILE' ) { 
+        // get the image
+        response = await fetch( url,
+        {  
+          method: "GET",
+          responseType: 'image/tiff',
           headers: {
             Accept: 'image/tiff',
             ..._auth,
@@ -41,7 +54,6 @@ export const doFetch = async (endpoint, method, payload, token) => {
         {  
           method: "POST",
           headers: {
-          //  'Content-Type': 'multipart/form-data',
             Accept: 'application/json',
             ..._auth,
           },
@@ -76,8 +88,13 @@ export const doFetch = async (endpoint, method, payload, token) => {
       }
       let data = null;
       if ( method === 'GETTIFF' ){
+        // get an array buffer of the image
         data = await response.arrayBuffer();
         return data;
+      }
+      else if ( method === 'GETTIFF_FILE' ){
+        // get the image
+        return response;
       }
       else {
         const isJson = response.headers.get('content-type')?.includes('application/json');
