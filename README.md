@@ -1,8 +1,8 @@
 <div align="center">
 
 # PLAN4LDN
-**Land Use Planning for Land Degradation Neutrality**
-The Plan4LDN is a software analytics tool  to support more transparent and well-informed land-use decisions at the local to national level across the globe. 
+**Planning Land Use for Land Degradation Neutrality**
+The Plan4LDN is a software analytics tool to support transparent and well-informed partecipatory land-use and land management decisions at the local to national level. 
 
 [![License: GPL v3](https://img.shields.io/github/license/crs4/PLAN4LDN)](./LICENSE)
 
@@ -13,9 +13,9 @@ The Plan4LDN is a software analytics tool  to support more transparent and well-
 ---
 
 ## About
-The **PLAN4LDN tool** is Based on **[LUP4LDN](https://github.com/SCiO-systems/lup4ldn/)**, developed and maintained by **[SCiO P.C.](https://scio.systems)**, Athens, Greece.  
+The **PLAN4LDN** tool is Based on **[LUP4LDN]** the tool that has won in 2021 the international technology innovation competition announced by GEO-LDN and that was jointly developed by ICARDA, WOCAT, SCiO, Claudio Zucca, and the ELD Initiative (hosted by GIZ) and that was released in 2023 (https://github.com/SCiO-systems/lup4ldn/)**, and maintained by [SCiO P.C.](https://scio.systems), Athens, Greece.
 
-PLAN4LDN uses partially different IT technologies compared to LUP4LDN, has a significantly redesigned interface and implements to a much larger extent the functionalities that form part of the original conceptual design of the tool, including capacity to perform directly GIS processing on the input data.
+PLAN4LDN has since been redeveloped by CRS4, Claudio Zucca, ICARDA, WOCAT using partially different IT technologies compared to LUP4LDN 1.1 version released by SCiO, has a significantly redesigned interface, implements to a much larger extent the functionalities that form part of the original conceptual design of the tool, including capacity to perform directly GIS processing on the input data, and generates different outputs that are aligned with the new UNCCD guidelines on the SDG15.3.1 indicator.
 
 The tool is a [Docker Compose](https://docs.docker.com/compose/) Multi-container application. 
 Compose simplifies the control of the entire application stack, making it easy to manage services, networks, and volumes in a single YAML configuration file. 
@@ -103,7 +103,7 @@ License v3.0 (GPL-3.0)** — see [`LICENSE`](./LICENSE) for the full text.
 ## Trademark
 
 
-**"PLAN4LDN"**  belongs to the University of Sassari, ICARDA, and WOCAT, who have developed this tool with the technical support of CRS4 by enhancing and reframing the LUP4LDN tool that won the GEO-LDN International Technology Innovation Competition in 2021, and who maintain this tool.
+**"PLAN4LDN"**  belongs to the University of Sassari, ICARDA, and WOCAT, who have developed this tool with the technical support of CRS4 by enhancing and reframing the LUP4LDN tool that won the **[GEO-LDN International Technology Innovation Competition in 2021](https://www.unccd.int/news-stories/stories/geo-ldn-competition-winner-announced)**, and who maintain this tool.
 
 The PLAN4LDN source code is released under the GNU General Public License v3.0 (GPL-3.0). That license applies to the software code only. It does not grant any right to use the PLAN4LDN name.
 
@@ -113,7 +113,7 @@ The PLAN4LDN GitHub repository is maintained by **[CRS4](https://crs4.it)**, Cag
 Use "PLAN4LDN", or any confusingly similar name (for example "PLAN4LDN 2.0", or "PLAN4LDN Plus"), as the name of a fork, derivative or separately governed tool.
 Use the name in any way that suggests your version is the original PLAN4LDN, or that it is endorsed by, affiliated with, or maintained by the tool developers.
 If you fork
-Give your fork a clearly different name and its own logo. You may include a factual attribution line such as: "Based on PLAN4LDN, developed and maintained by the University of Sassari, ICARDA, WOCAT and CRS4"
+Give your fork a clearly different name and logo. You may include a factual attribution line such as: "Based on PLAN4LDN, developed and maintained by the University of Sassari, ICARDA, WOCAT and CRS4"
 
 ## Contact
 For any permission or question regarding the PLAN4LDN name or logo, contact the developers at **smsl@uniss.it**.
