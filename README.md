@@ -91,7 +91,7 @@ docker compose build
 ```bash
 docker compose up -d 
 ```
-### 4. Access the site (e.g on http://localhost/ )
+### 4. Access the site  
 
 ## License
 
