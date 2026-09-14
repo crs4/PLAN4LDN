@@ -13,7 +13,7 @@ The Plan4LDN is a software analytics tool to support transparent and well-inform
 ---
 
 ## About
-The **PLAN4LDN** tool is Based on **[LUP4LDN]** the tool that has won in 2021 the international technology innovation competition announced by GEO-LDN and that was jointly developed by ICARDA, WOCAT, SCiO, Claudio Zucca, and the ELD Initiative (hosted by GIZ) and that was released in 2023 (https://github.com/SCiO-systems/lup4ldn/)**, and maintained by [SCiO P.C.](https://scio.systems), Athens, Greece.
+The **PLAN4LDN** tool is Based on **[LUP4LDN](https://github.com/SCiO-systems/lup4ldn/)** the tool that has won in 2021 the international technology innovation competition announced by GEO-LDN and that was jointly developed by ICARDA, WOCAT, SCiO, Claudio Zucca, and the ELD Initiative (hosted by GIZ) and that was released in 2023, and maintained by [SCiO P.C.](https://scio.systems), Athens, Greece.
 
 PLAN4LDN has since been redeveloped by CRS4, Claudio Zucca, ICARDA, WOCAT using partially different IT technologies compared to LUP4LDN 1.1 version released by SCiO, has a significantly redesigned interface, implements to a much larger extent the functionalities that form part of the original conceptual design of the tool, including capacity to perform directly GIS processing on the input data, and generates different outputs that are aligned with the new UNCCD guidelines on the SDG15.3.1 indicator.
 
