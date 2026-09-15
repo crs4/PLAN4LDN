@@ -111,8 +111,11 @@ The PLAN4LDN GitHub repository is maintained by **[CRS4](https://crs4.it)**, Cag
 
 ### What you may not do without prior written permission by the tool developers
 Use "PLAN4LDN", or any confusingly similar name (for example "PLAN4LDN 2.0", or "PLAN4LDN Plus"), as the name of a fork, derivative or separately governed tool.
+
 Use the name in any way that suggests your version is the original PLAN4LDN, or that it is endorsed by, affiliated with, or maintained by the tool developers.
+
 IF YOU FORK OR USE PART OF THE CODE TO DEVELOP DIFFERENT APPLICATIONS you SHALL include a factual attribution line such as: "Based on PLAN4LDN, developed and maintained by the University of Sassari, ICARDA, WOCAT and CRS4. 
+
 IF YOU ARE INTERESTED IN USING THE CODE OR PARTS OF IT TO DEVELOP NEW APPLICATIONS YOU ARE INVITED TO CONTACT THE DEVELOPERS THAT WELCOME POSSIBLE COLLABORATIONS"
 
 ## Contact
