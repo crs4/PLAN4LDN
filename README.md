@@ -15,7 +15,7 @@ The Plan4LDN is a software analytics tool to support transparent and well-inform
 ## About
 The **PLAN4LDN** tool is Based on **[LUP4LDN](https://github.com/SCiO-systems/lup4ldn/)** the tool that has won in 2021 the international technology innovation competition announced by GEO-LDN and that was jointly developed by ICARDA, WOCAT, SCiO, Claudio Zucca, and the ELD Initiative (hosted by GIZ) and that was released in 2023, and maintained by [SCiO P.C.](https://scio.systems), Athens, Greece.
 
-PLAN4LDN has since been redeveloped by CRS4, Claudio Zucca, ICARDA, WOCAT using partially different IT technologies compared to LUP4LDN 1.1 version released by SCiO, has a significantly redesigned interface, implements to a much larger extent the functionalities that form part of the original conceptual design of the tool, including capacity to perform directly GIS processing on the input data, and generates different outputs that are aligned with the new UNCCD guidelines on the SDG15.3.1 indicator.
+PLAN4LDN has since been redeveloped by the University of Sassari, ICARDA, and WOCAT, with IT support by CRS4 using partially different IT technologies compared to LUP4LDN 1.1 version released by SCiO, has a significantly redesigned interface, implements to a much larger extent the functionalities that form part of the original conceptual design of the tool, including capacity to perform directly GIS processing on the input data, and generates different outputs that are aligned with the new UNCCD guidelines on the SDG15.3.1 indicator.
 
 The tool is a [Docker Compose](https://docs.docker.com/compose/) Multi-container application. 
 Compose simplifies the control of the entire application stack, making it easy to manage services, networks, and volumes in a single YAML configuration file. 
@@ -112,8 +112,8 @@ The PLAN4LDN GitHub repository is maintained by **[CRS4](https://crs4.it)**, Cag
 ### What you may not do without prior written permission by the tool developers
 Use "PLAN4LDN", or any confusingly similar name (for example "PLAN4LDN 2.0", or "PLAN4LDN Plus"), as the name of a fork, derivative or separately governed tool.
 Use the name in any way that suggests your version is the original PLAN4LDN, or that it is endorsed by, affiliated with, or maintained by the tool developers.
-If you fork
-Give your fork a clearly different name and logo. You may include a factual attribution line such as: "Based on PLAN4LDN, developed and maintained by the University of Sassari, ICARDA, WOCAT and CRS4"
+IF YOU FORK OR USE PART OF THE CODE TO DEVELOP DIFFERENT APPLICATIONS you SHALL include a factual attribution line such as: "Based on PLAN4LDN, developed and maintained by the University of Sassari, ICARDA, WOCAT and CRS4. 
+IF YOU ARE INTERESTED IN USING THE CODE OR PARTS OF IT TO DEVELOP NEW APPLICATIONS YOU ARE INVITED TO CONTACT THE DEVELOPERS THAT WELCOME POSSIBLE COLLABORATIONS"
 
 ## Contact
 For any permission or question regarding the PLAN4LDN name or logo, contact the developers at **smsl@uniss.it**.
