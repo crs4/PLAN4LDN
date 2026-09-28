@@ -1,36 +1,48 @@
 {% load static %}
 {% load i18n %}
 {% get_current_language as LANGUAGE %}
+{% load base_tags %}
+{% load markdownify %}
+{% block extra_style %}
+    <style>
+        #gn-hero {
+            background-image: url("{% static 'img/soils-background6.jpg' %}");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-color: transparent;
+        }    
+    </style>
 
-
-<nav class="s4m-blue-navbar s4m-blue-navbar-top">
-    <div class="s4m-blue-left">
-        <ul>
-            <li><a href="/catalogue/#/">{% trans "All resources" %}</a></li>
-            <li><a href="/catalogue/#/?f=dataset">{% trans "Datasets" %}</a></li>
-            <li><a href="/catalogue/#/?f=map">{% trans "Maps" %}</a></li>
-            <li><a href="/catalogue/#/?f=document">{% trans "Documents" %}</a></li>
-            <li><a href="/catalogue/#/?f=geostory">{% trans "GeoStories" %}</a></li>
-            <li><a href="/catalogue/#/?f=dashboard">{% trans "Dashboards" %}</a></li>
-        </ul>
+{% endblock %}
+<div id="gn-hero" class="gn-hero">
+    <div class="jumbotron">
+        <h1 style="
+            color: rgb(213, 149, 89);
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px darkblue;
+            margin-top: 1rem;
+            font-size: 6rem;" >Plan<span style='color: rgb(46 155 81);'>4</span>LDN</h1>
+        <p style="
+            font-size: 3rem;
+            font-weight: 500;
+            text-align: center;
+            color: rgb(47 172 110);
+            text-shadow: 2px 2px 4px darkblue;">Public Catalogue</p>
+        <a class="btn btn-primary text-align: center;" href="/plan4ldn" role="button">
+            {% if LANGUAGE == 'fr-fr' %} Ouvrir l'outil PLAN4LDN  
+                {% elif LANGUAGE == 'it-it' %} Apri il tool PLAN4LDN
+                {% elif LANGUAGE == 'es-es' %} Abra PLAN4LDN 
+                {% else  %} Open the tool PLAN4LDN
+            {% endif %} 
+        </a>
+        <div style="margin: 1rem; text-align: center; background-color: white; border-style: solid; border-color: rgb(25, 98, 206);">
+            <a href="https://mel.cgiar.org/projects/1866" target="_blank" rel="noopener noreferrer"><img src="/static/img/logo.png" style="height: 50px; margin: 10px;"></a>
+            <a href="https://www.crs4.it/" target="_blank" rel="noopener noreferrer"><img src="/static/img/LogoCRS4.2000x600.png" style="height: 50px; margin: 10px;"></a>
+            <a href="/" target="_blank" rel="noopener noreferrer"><img src="/static/img/icarda.png" style="height: 50px; margin: 10px;"></a>
+            <a href="/" target="_blank" rel="noopener noreferrer"><img src="/static/img/ELD.png" style="height: 50px; margin: 10px;"></a>
+        </div>
     </div>
-    <div class="s4m-blue-right">
-        <ul>
-            <li class="dropdown-container">
-                <div class="dropdown">
-                    <button class="dropdown-toggle s4m-nav-btn" type="button" data-toggle="dropdown">{% trans "About" %} <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="/people/">{% trans "People" %}</a></li>
-                        <li><a href="/groups/">{% trans "Groups" %}</a></li>
-                    </ul>
-                </div>
-            </li>
-            {% include './language_selector.html' with variant='primary' align_right=True %}
-        </ul>
-    </div>
-</nav>
-
-
-
-
+</div>
 

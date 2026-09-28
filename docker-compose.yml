@@ -211,15 +211,15 @@ services:
   # Nginx is serving laravel static and media files and proxies laravel 
   laravel:
     build:
-      context: ./plan4ldn-be
-      dockerfile: ./docker/nginx/Dockerfile
+      context: ./plan4ldn-be/
+      dockerfile: docker/nginx/Dockerfile
     container_name: ${COMPOSE_PROJECT_NAME}-be-nginx
     env_file:
       - .env
     environment:
       - NGINX_HOST=localhost  
     restart: unless-stopped # Automatically restart unless the service is explicitly stopped
-    ports:
+    ports: 
       - "${NGINX_PORT:-3033}:3033"
     volumes:
       - laravel-storage-production:/var/www/storage:ro
@@ -260,6 +260,7 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+  
   # MySql database
   mysql:
     image: mysql:8.0
