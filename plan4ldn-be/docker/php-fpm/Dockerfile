@@ -1,6 +1,7 @@
 # Use the alpine PHP image as a base
-FROM php:8.4-fpm-alpine
+FROM php:8.5-fpm-alpine
 
+RUN apk update
 # Install system dependencies
 RUN apk --no-cache add \
 #    autoconf \   
@@ -28,11 +29,10 @@ RUN apk --no-cache add \
 # Clear cache
 RUN rm -rf /var/cache/apk/*
 
-
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath opcache
+    &&  docker-php-ext-install gd \
+    &&  docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath 
  
 # RUN pecl install redis
 
